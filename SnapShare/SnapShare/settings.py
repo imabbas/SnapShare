@@ -31,7 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
+<<<<<<< HEAD
+    'snap.apps.SnapConfig',
+=======
     'snap.apps.SnapConfig'
+>>>>>>> 6bdb327603555e2251c9f79e835715b409b14ee1
+=======
+    'snap.apps.SnapConfig'
+>>>>>>> 6bdb327603555e2251c9f79e835715b409b14ee1
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
