@@ -1,0 +1,59 @@
+{% extends "snap/base.html" %}
+
+{% block content %}
+<body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <h1 class="logo text-center"><a href="/">GRUBBR</a></h1>
+                    <div class="card">
+                        <div class="card-block">
+                          <legend class="text-center">Log In</legend>
+			  {% if error %}
+			  <div class="alert alert-danger">{{ error }}</div>
+			  {% endif %}
+                            <form action="/login/" method="post">
+                              <!--<div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input type="text" class="form-control form-control lg" name="username" placeholder="Email">
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="text" class="form-control form-control lg" name="password" placeholder="Password">
+                                </div>
+				-->
+				                {% csrf_token %}
+                                {% for error in form.non_field_errors %}
+                                   <div class="form-group has-errors text-danger small">
+                                       {{error}}
+                                   </div>
+                                {% endfor %}
+                                {% for field in form %}
+                                    <div class="form-group has-errors text-danger small">
+                                        {{field.errors}}
+                                    </div>
+                                    <div class="form-group has-errors text-danger small">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group input-group">
+                                            {% if field.name == "email" %}
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            {% else %}
+                                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            {% endif %}
+                                            {{field}}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info btn-lg btn-block">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <p class="text-center">Haven't created an account? <a href="/register/">Sign Up!</a></p>
+                </div>
+            </div>
+        </div>
+{% endblock %}
