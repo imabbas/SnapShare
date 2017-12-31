@@ -5,33 +5,24 @@
     <div class="container">
         <h1 class="jumbotron-heading">SnapShare</h1>
         <p class="lead text-muted">Share Photos With Your Friends!<br /> </p>
+          <a class="btn btn-outline-info my-2 my-sm-1" href="{% url "snap:post-add" %}">Upload</a>
     </div>
 </section>
 
-<div class="container" id="meal-container">
-    <div class="card">
-      <div class="card-block text-center" id="meal-heading">
-        <h3 class="jumbotron-heading no-mb"></h3>
+<div class="albums-container container-fluid">
+  <div class="row">
+    {% for post in object_list %}
+      <div class="card" style="width: 20rem;">
+        <h4 class="{{post.user}}">{{post.user}}</h4>
+        <a href="{% url "snap:detail" post.id %}">
+          <img class="card-img-top" src="{{post.image.url}}" alt="Card image cap">
+        </a>
+        <div class="card-block">
+          <p class="card-text">{{post.comment}}</p>
+          <a href="{% url "snap:detail" post.id %}" class="btn btn-primary">Go somewhere</a>
+        </div>
       </div>
-    </div>
-    <div class="row meal-row">
-        {% if data %}
-            {% for meal in data %}
-                <div class="col-md-4">
-                    <div class="card meal-card">
-                        <div class="card-block meal-title">
-                            <h5 class="jumbotron-heading no-mb"><a href="/meal/{{meal.id}}">{{ meal.name }}</a></h5>
-                        </div>
-                        <img src="http://via.placeholder.com/300x200" alt="Card image">
-                        <div class="card-block">
-                            <p class="card-text"><b>${{meal.price}}</b></p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No meals avalible.</p>
-        {% endif %}
-    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

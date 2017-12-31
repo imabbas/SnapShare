@@ -31,20 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD:SnapShare/SnapShare/SnapShare/settings.py
-
     'snap.apps.SnapConfig',
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    'snap.apps.SnapConfig',
-=======
-    'snap.apps.SnapConfig'
->>>>>>> 6bdb327603555e2251c9f79e835715b409b14ee1
-=======
-    'snap.apps.SnapConfig'
->>>>>>> 6bdb327603555e2251c9f79e835715b409b14ee1
->>>>>>> 34b33f465e2abe154bf2400d13b9276a9b309649:SnapShare/SnapShare/settings.py
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
